@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+typedef struct point{
+  float x;
+  float y;
+
+} point;
+
+typedef struct circle{
+  point A;
+  float R;
+
+} circle;
+
+int is_circle(circle *p,point *w){
+  if( ((p->x - w->A.x)*(p->x - w->A.x) + (p->y - w->A.y)*(p->y - w->A.y)) < R){
+    return 1;
+  }
+  else return 0;
+}
+int main(){
+  
+
+  return 0;
+}

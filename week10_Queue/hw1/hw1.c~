@@ -1,0 +1,69 @@
+#define MAX 100
+typedef int element;
+#include "Int_ListStack.h"
+typedef int elementType;
+#include "Char_ListStack.h"
+int main(){
+  elementType c;
+  node *top;
+  initialize(&top);
+  undo *undo;
+  initialize2(&undo);
+  int x;
+  int choose;
+  int i=0,A[MAX];
+  A[0] = 0;
+  
+    printf("---MENU---\n"
+	   "1. Add 1 integer to the stack\n"
+	   "2. Remove from the stack\n"
+	   "3. View top\n"
+	   "4. Undo\n"
+	   "5. Exit\n");
+    do{
+      printf("--> Choose: ");
+      scanf("%d", &choose);
+      if( A[0] == 0 && (choose == 2 || choose == 3)){
+	printf("overflow\nChoose: ");
+	scanf("%d",&choose);
+      }
+      if( choose == 4 && A[0] == 0){
+	printf("\n-----------\n");
+      }
+      if(choose == 1){
+	A[i] = 1;
+	i++;
+      }
+      if(choose == 2 && A[0] != 0){
+	A[i] = 2;
+	i++;
+      }
+      
+      switch(choose){
+      case 1:
+	printf("Input x: ");
+	scanf("%d",&x);
+	Push(x,&top);
+	break;
+      case 2:
+	c = Pop(&top);
+	Push2(c,&undo);
+	break;
+      case 3:
+	printf("%d\n",Peek(top));
+	break;
+      case 4:
+	if(A[i-1] == 1){
+	  Pop(&top);
+	}
+	if(A[i-1] == 2){
+	  c = Pop2(&undo);
+	  Push(c,&top);
+	}
+	break;
+      case 5:
+	printf(" Exit !\n");
+      }
+    }while(choose == 1 || choose == 2 || choose == 3 || choose == 4);
+    return 0;
+}

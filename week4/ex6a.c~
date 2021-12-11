@@ -1,0 +1,42 @@
+#include <stdio.h>
+#define MAX 100
+#include <stdio_ext.h>
+
+typedef struct PhoneAddress_t{
+  char name[20];
+  char tel[11];
+  char mail[20];
+}phone;
+
+int main(){
+  int i,irc,n;
+  phone a[MAX];
+  FILE *ptr;
+  printf("Input contact : ");
+  n = 5;
+  for(i=0;i<n;i++){
+    printf("Name: ");
+    gets(a[i].name);
+    
+    printf("tel: ");
+    gets(a[i].tel);
+    printf("email: ");
+    gets(a[i].mail);
+  }
+  ptr = fopen("PhoneAddress.dat","w+b");
+  if(ptr == NULL){
+    printf("cannot open the file");
+    return 1;
+  }
+  irc = fwrite(a,sizeof(phone),n,ptr);
+  printf("Fread return code = %d\n",irc);
+  printf("%-20s %-15s %-20s\n","Name","Tel","Mail");
+  for(i=0;i<n;i++){
+    printf("%-20s %-15s %-20s\n",a[i].name,a[i].tel,a[i].mail);
+
+     
+  }
+  fclose(ptr);
+  
+  return 0;
+}

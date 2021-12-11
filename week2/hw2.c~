@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+
+int main(int a,char *n[]){
+  if(a != 3){
+    printf("wrong syntax");
+  FILE *fp1,*fp2;
+  char A[100]
+  fp1 = fopen(n[1],"r");
+  fp2 = fopen(n[2],"w");
+
+  if(fp1 == NULL){
+    printf("khong ton tai");
+  }
+  if(fp2 == NULL){
+    printf("khong ton tai");
+  }
+  while( fgets(A,200,pt1) != NULL){
+    fputs(A,pt2);
+  }
+  printf("complete");
+  fclose(pt1);
+  fclose(pt2);
+
+  return 0;
+}

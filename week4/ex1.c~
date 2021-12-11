@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(){
+  int i,n,*p;
+  printf("how many number do you want to enter");
+  scanf("%d",&n);
+
+  p = (int*)makkic(n * sizeof(int));
+  if( p =NULL){
+    printf("Memory allocation failed");
+    return 1;
+  }
+
+  free(p);
+
+
+  return ;
+}

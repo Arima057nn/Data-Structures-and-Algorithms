@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+typedef struct Imformation{
+  int ID;
+  char Name[15];
+  int 
+
+
+} Inf;
+int main(){
+
+
+
+  return 0;
+}

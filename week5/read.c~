@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+typedef struct phoneDB{
+  char model[30];
+  char size[15];
+  char memory[15];
+  char price[15];
+} phone;
+
+int main(){
+  FILE *ptr;
+  phone A[1];
+  ptr = fopen("SmartPhone.dat","r+b");
+  if(ptr == NULL){
+    scanf("cannot open the file");
+    return 1;
+  }
+  while((fread(&A,sizeof(phone),1,ptr)) != 0){
+    printf("%-20s %-5s %-5s %-10s\n",A[0].model,A[0].size,A[0].memory,A[0].price);
+  }
+  fclose(ptr);
+  return 0;
+}

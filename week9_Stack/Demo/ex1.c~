@@ -1,0 +1,35 @@
+
+#include "stackList.h"
+
+int main(){
+  int carry = 0,a,b;
+  char A[20];
+  node *T1, *T2, *T3;
+  printf("Nhap vao chuoi thu nhat: ");
+  scanf("%s%*c", A);
+  initialize(&T1);
+  for(int i = 0; i < strlen(A); i++) Push(&T1, A[i] - '0');
+  printf("Nhap vao chuoi thu nhat: ");
+  scanf("%s%*c", A);
+  initialize(&T2);
+  for(int i = 0; i < strlen(A); i++) Push(&T2, A[i] - '0');
+  initialize(&T3);
+  while(!isEmpty(T1) || !isEmpty(T2)){
+      if((a = Pop(&T1)) == -9999) a = 0;
+      if((b = Pop(&T2)) == -9999) b = 0;
+
+      if(a + b + carry > 10){
+	Push(&T3, a + b + carry - 10);
+	carry = 1;
+      }
+      else{
+	Push(&T3, a + b + carry);
+	carry = 0;
+      }
+    }
+
+    if(carry == 1) Push(&T3, carry);
+    while(!isEmpty(T3)) printf("%d", Pop(&T3));
+
+    printf("\n");
+}

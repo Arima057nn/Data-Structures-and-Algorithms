@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+void tower(int num, char freompeg,char topeg,char auxpeg){
+  if(num == 1){
+    printf("Move disk 1 from peg %c to peg %c",frompeg,topeg);
+    return ;
+  }
+  tower(num-1,frompeg,topeg,auxpeg);
+  printf("Move disk %d from peg %c to peg %c",num,from,topeg);
+  tower(num - 1,aupeg,topeg,frompeg);
+}
+
+int main(){
+
+  tower(num,'A','B','C');
+
+  return 0;
+}

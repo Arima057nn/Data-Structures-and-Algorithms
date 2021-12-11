@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+typedef struct Node{
+  phone  element;
+  struct Node *prev;
+  struct Node *next;
+};
+typedef Node *doublelist;
+doubleist head, tail, cur;
+
+void MakeNull_list (doublelist *root, doublelist *tail, doublelist *cur){
+  (*root) = NULL;
+  (*tail) = NULL;
+  (*cur) = NULL;;
+
+}
+
+//kiem tra hinh dang nen khong co con tro
+int isEmpty(doublelist root){
+  return (root == NULL);
+
+}
+
+//Ham nhap vao phone
+phone inputnode(){
+  phone new;
+  printf("Model: ");
+  scanf("%s",new.model);
+  printf("Size: ");
+  scanf("%s",new.size);
+  printf("Memory: ");
+  scanf("%s",new.memory);
+  printf("Price: ");
+  scanf("%s",new.price);
+
+}
+//Ham: tao mot node moi
+node *makeNewNode(phone addr){
+  node *new = (node*)malloc(sizeof(node));
+  new->element = addr;
+  new->next = NULL;
+  new->prev = NULL;
+  return new;
+}
+//Ham: them vao sau vi tri hien tai
+void insertAfterCurrent(phone e,doublelist *root, doublelist *tail, doublelist *cur){
+  node *new = makeNewNode(e);
+  if(*root == NULL){
+    *root = new;
+    *tail = new;
+    *cur = *root;
+  }else{
+    new->next = (*cur)->next;
+    if( (*cur)->next != NULL){
+      (*cur)->next->prev = new; 
+    }else{
+      *tail = new;
+      (*cur)->next = new;
+      new->prev = *cur;
+      *cur = new;
+    }
+  }
+}
+
+
+int main(){
+
+
+  return 0;
+}

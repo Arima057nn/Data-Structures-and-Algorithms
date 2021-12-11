@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+typedef struct Students{
+  char NAME[20];
+  int MSSV;
+  int SDT;
+  float Scout;
+  
+
+} SV;
+
+int main(){
+  FILE *fp1 , *fp2;
+  fp1 = fopen("SinhVien.txt","r");
+  fp2 = fopen("Bangdiem.txt","w");
+  if(fp1 == NULL){
+    printf("Cannot open the file");
+    return 1;
+  }
+  if(fp2 == NULL){
+    printf("Cannot open the file");
+    return 1;
+  }
+  while(
+  return 0;
+}

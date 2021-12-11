@@ -1,0 +1,21 @@
+char text[256];
+
+===Ham fputs() - Ghi mot chuoi ki tu vao file
+        fputs("Pham Tien Dung",ptr);
+===Ham fgets() - Doc mot dong ki tu tu file
+        while( fgets(text,255,ptr) != NULL)
+
+===Ham fputc() - Ghi mot ki tu vao file
+        fputc('A',ptr);
+===Ham fgetc() - Doc tung ki tu mot tu mot file da cho.No tra ve EOF khi ket thuc file
+        while( (c = fgetc(ptr)) != EOF)
+
+    Hàm strlen – hàm lấy chiều dài chuỗi
+    Hàm strcmp – hàm so sánh 2 chuỗi
+    Hàm strcat – hàm nối chuỗi
+    Hàm strcpy – hàm copy chuỗi
+    Hàm strlwr – Đưa chuỗi về dạng lowercase //pham tien dung
+    Hàm strupr – đưa chuỗi 	về dạng uppercase // PHAM TIEN DUNG
+    Hàm strrev – hàm đảo ngược chuỗi
+    Hàm strchr – Trả về vị trí đầu tiên của ký tự cần tìm
+    Hàm strstr – hàm tìm chuỗi con trong chuỗi

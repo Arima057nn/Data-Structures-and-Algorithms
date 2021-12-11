@@ -1,0 +1,209 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define Num 10
+typedef struct SmartPhone{
+  char model[25];
+  char GB[5];//Dung luong bo nho
+  char inches[5];//Kich thuoc man hinh
+  char price[10];
+} phone;
+typedef struct node{
+  phone A;
+  struct node *next;
+} node;
+
+node *root = NULL, *cur = NULL, *prev = NULL;
+node *makenewnode(phone A){
+  node *new = (node *)malloc(sizeof(node));
+  new->A = A;
+  new->next = NULL;
+  return new;
+}
+phone readnode(FILE *ptr){
+  phone A;
+  fread(&A,sizeof(phone),1,ptr);
+  return A;
+}
+phone scanfnode(FILE *ptr){
+  phone A;
+  fscanf(ptr,"%s%s%s%s%*c",A.model,A.GB,A.inches,A.price);
+  return A;
+}
+phone inputnode(){
+  phone A;
+  char c;
+  printf("Name: ");
+  c = getchar();
+  gets(A.model);
+  printf("GB: ");
+  c = getchar();
+  gets(A.GB);
+  printf("Inches: ");
+  c = getchar();
+  gets(A.inches);
+  printf("Price: ");
+  c = getchar();
+  gets(A.price);
+  return A;
+}
+void displaynode(node *p){
+  while(p->next != NULL){
+    printf("%-20s %-20s %-20s %-20s\n",p->A.model,p->A.GB,p->A.inches,p->A.price);
+  }
+}
+void insertathead(phone A){
+  node *new = makenewnode(A);
+  if(root == NULL){
+    root = new;
+    cur = root;
+    prev = NULL;
+  }else{
+    new->next = root;
+    root = new;
+    cur = root;
+    prev = NULL;
+    }
+}
+void traversinglist(){
+    node *p;
+    for(p = root;p!= NULL;p=p->next){
+        displaynode(p);
+    }
+}
+void insertbeforcurrent(phone A){
+    node *new = makenewnode(A);
+    if(root = NULL){
+        root = new;
+        cur = root;
+        prev = NULL;
+    }else{
+        new->next = cur->next;
+        prev = cur;
+        cur->next = new;
+        cur = new;
+    }
+}
+void insertaftercurrent(phone A){
+  node *new=makenewnode(A);
+  if(root==NULL){
+    root=new;
+    cur=root;
+    prev=NULL;
+  }else if(cur==NULL){
+    printf("Current is NULL\n");
+    return;
+  }else{
+    new->next=cur->next;
+    prev=cur;
+    cur->next=new;
+    cur=new;
+  }
+}
+void updateprev(){
+  node *p;
+  if(cur==root){
+    prev=NULL;
+  }
+  for(p=root;p!=NULL;p=p->next){
+    if(p->next==cur){
+      prev=p;
+      return;
+    }
+  }
+}
+
+int main(){
+  node *p;
+  char k,C[100];
+  FILE *ptr;
+  phone *A;
+  int i = 0,n = 0,j;
+  int luaChon;
+  do{
+    printf("\nMenu:\n");
+    printf("1.Import from PhoneDB.dat\n");
+    printf("2.Display\n");
+    printf("3.Add new phone\n");
+    printf("4.Insert at Position\n");
+    printf("5.Delete at Position\n");
+    printf("6.Delete current\n");
+    printf("7.Delete first\n");
+    printf("8.Search and Update\n");
+    printf("9.Divide and Extract\n");
+    printf("10.Reverse List\n");
+    printf("11.Save to File\n");
+    printf("12.Quit\n");
+    printf("\nBan chon? ");
+    scanf("%d",&luaChon);
+    if(luaChon == 1){
+      i=1;
+    }
+    if((luaChon != 1) && i == 0 ){
+      do{
+	printf("Chon 1 de doc du lieu tu file .dat sang danh sach lien ket: ");
+	printf("\nBan chon: ");
+	scanf("%d",&luaChon);
+      }while(luaChon != 1);
+    }
+    switch (luaChon){
+    case 1:
+      p=root;
+      while(p!=NULL){
+	root=(*root).next;
+	free(p);
+	p=root;
+      }
+      if((ptr=fopen("SmartPhone.dat","rb"))==NULL){
+	printf("Cannot open PhoneDB.dat file!\n");
+	return 1;
+      }
+      while(!feof(ptr)){
+	insertaftercurrent(readnode(ptr));
+      }   
+      fclose(ptr);
+      printf("Complete!\n");
+      break;
+    case 2:
+      traversinglist();
+      break;
+    case 3:
+      printf("1.Insert Before Current\n2.Insert After Current\n");
+      scanf("%d",&i);
+      if(i==1){
+	insertaftercurrent(inputnode());
+      }else if(i==2){
+	insertaftercurrent(inputnode());
+      }
+      printf("Complete!\n");
+      break;
+    case 4:
+      
+      break;
+    case 5:
+      
+      
+        break;
+    case 6: 
+        break;
+    case 7:
+        break;
+    case 8:
+        break;
+    case 9:
+        break;
+    case 10:
+        break;
+    case 11:
+        break;
+    case 12:
+    printf("Quit!");
+        break;
+    }
+    }while(luaChon != 12);
+
+
+
+
+    return 0;
+}

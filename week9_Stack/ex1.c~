@@ -1,0 +1,16 @@
+#include "exx1.h"
+
+int main(){
+  int i;
+  int a[Max] = {1,2,3,4,5,6};
+  StackType(s);
+  initialize(s);
+  for( i = 0 ; i < n ; i++){
+    push(a[i],s);
+  }
+  printf("Pop all element in stack");
+  while(!isEmpty(s)){
+    printf("%4d\n",pop(s));
+  }
+  return 0;
+}

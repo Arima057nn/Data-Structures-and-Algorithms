@@ -1,0 +1,30 @@
+#include <stdio.h>
+char my_strcat(char *str1,char *str2){
+  int len1,len2;
+  len1 = strlen(str1);
+  len2 = strlen(str2);
+  char *resuft;
+  resuft = (char*)malloc((len1 + len2 + 1)*sizeof(char));
+  if(resuft == NULL){
+    printf("Allocation failed");
+  }
+  strcpy(resuft,str1);
+  strcpy(resuft + 1, str2);
+  return resuft;
+}
+
+int main(){
+  char str1[100],str2[100];
+  char cat_str[300];
+  printf("Enter to string");
+  fgets(str1,"chung ta ");
+  fgets(str2,"khong thuoc ve nhau");
+  my_strcat(str1,str2);
+  if(cat_str == NULL){
+    printf("problem allocating memory");
+    return 1;
+  }
+  free(cat_str);
+
+  return 0;
+}

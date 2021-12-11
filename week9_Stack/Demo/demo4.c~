@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define Max 50
+typedef struct phoneDB{
+  char model[30];
+  int size;
+  int memory;
+  char price[15];
+} phone;
+
+typedef phone element;
+typedef struct node{  
+  struct node *link;
+  element data;
+} node;
+
+int isEmpty(node **top){
+  return *top == NULL;
+}
+element inputNode(){
+  element new;
+  printf("Model: ");
+  scanf("%s",new.model);
+  printf("Size: ");
+  scanf("%d",&(new.size));
+  printf("Memory: ");
+  scanf("%d",&(new.memory));
+  printf("Price: ");
+  scanf("%s",new.price);
+  return new;
+}
+
+node *makeNewNode(element e){
+  node *new = (node*)malloc(sizeof(node));
+  new->data = e;
+  new->link = NULL;
+  return new;
+}
+void Push(node **top, element e){
+  node *new = makeNewNode(e);
+  if(*top == NULL){
+    *top = new;
+  }else{
+    new->link = *top;
+    *top = new;
+  }
+}
+element Pop(node **top){
+  node *cur;
+  element tmp;
+  if(*top == NULL){
+    printf("the stack is empty can not pop Error\n");
+    return ;
+  }
+  
+  tmp = (*top)->data;
+  cur = *top;
+  *top = (*top)->link;
+  free(cur);
+  return tmp;
+  // printf("%-20s %-20d %-20d %-20s\n",temp->data.model,temp->data.size,temp->data.memory,temp->data.price);
+}
+
+int main(){
+  int i = 0;
+  element A;
+  node *top = NULL;
+  for(i = 0; i < 4; i++)
+    Push(&top, inputNode());
+  while(top != NULL){
+    A = Pop(&top);
+    printf("%-20s %-20d %-20d %-20s\n",A.model,A.size,A.memory,A.price);
+    // i++
+  }
+  return 0;
+}

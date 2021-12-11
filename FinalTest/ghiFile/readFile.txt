@@ -1,0 +1,34 @@
+char text[256];
+
+===Ham fputs() - Ghi mot chuoi ki tu vao file
+        fputs("Pham Tien Dung",ptr);
+===Ham fgets() - Doc mot dong ki tu tu file
+        while( fgets(text,255,ptr) != NULL)
+
+===Ham fputc() - Ghi mot ki tu vao file
+        fputc('A',ptr);
+===Ham fgetc() - Doc tung ki tu mot tu mot file da cho.No tra ve EOF khi ket thuc file
+        while( (c = fgetc(ptr)) != EOF)
+
+Chuong6: Tim kiem
+        -Tim kiem tuan tu
+        -Tim kiem nhi phan: dac diem,thao tac,tim min,max, node truoc, node sau, them, xoa 
+Chuong5: Sap xep
+        -Nam bat 3 thuat toan sap xep co ban, 3 nang cao. Nam cac buoc thuc hien
+        -heapSort: thuc hien tao dong,vun dong
+Chuong4: Tree
+        -Tim hieu cac thuat ngu: do cao,do sau,to tien,hau due
+        -Cac cau truc cai dat cay: mang, listked
+        -Cac thao tac doi voi cay, duyet cay
+        -Cay nhi phan: dac diem,tinh chat, bieu dien cay nhi phan,duyet cay nhi phan. Cay bieu thuc ??
+Chuong3: Danh sach
+        -Tim hieu,so sanh,dac diem: mang,danh sach lien ket
+        -Stack,Queen
+Chuong2: De qui(Quan trong)
+        -Khai niem, thuat toan, vi du, cach thuc danh gia thuat de qui,
+        -de quy co nho, de qui quay lui
+Chuong1: Danh gia do phuc tap, danh gia ngon ngu tiem can: Dinh li tho
+
+ fprintf(ptr,"%d %s %d %d\n",A[i].maSP,A[i].ten,A[i].gia,A[i].soluong);
+ while( fscanf(ptr, "%d%s%d%d%*c", &B[0].maSP, B[0].ten, &B[0].gia, &B[0].soluong)
+ == 4){

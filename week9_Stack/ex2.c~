@@ -1,0 +1,16 @@
+#include "exx2.h"
+int main(){
+  int a[6] = {1,2,3,4,5,6};
+  int i;
+  stacktype s;
+  initialize(&s);
+  for(i=0;i<6;i++){
+    push(a[i].&s);
+  }
+  printf("Pop all element in stack\n");
+  while(!isEmpty(s){
+      printf("%4d\n",pop(s));
+    }
+
+  return 0;
+}

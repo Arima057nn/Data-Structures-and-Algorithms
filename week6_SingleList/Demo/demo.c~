@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+typedef struct Address{
+  char name[25];
+  char phone[15];
+
+} Address;
+
+struct node{
+  Address data;
+  struct node *Next;
+};
+typedef struct node NODE;
+NODE *root, *cur, *prev;
+
+NODE *makenewNode(Address *p){ //Tao 1 node moi
+  NODE *new = (Address *)malloc(sizeof(Address));
+  new->data = data;
+  new->Next = NULL;
+  return new;
+}
+void displayNote(NODE *p){
+  if(p ==NULL){
+    printf("Error poiters");
+    return;
+  }
+  printf("%s\t%s\n",p->data.name,p->data.phone);
+}
+
+node CreateNode( Address demo){
+  NODE temp;
+  temp = (NODE*)malloc(sizeof(NODE));
+  temp->next = NULL;
+  gets(temp->data.name);
+  gets(temp->date.phone);
+  return temp;
+}
+int main(){
+
+
+
+
+
+  return 0;
+}

@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef int element;
+typdef struct Node{
+  element data;
+  struct Node *next;
+} node;
+
+node *makeNewNode(element e){
+  node *new = (node*)malloc(sizeof(node));
+  new->next = NULL;
+  new->data = e;
+  return new;
+}
+
+void initialize(node **stack){
+  *stack == NULL;
+}
+
+int isEmpty(node *stack){
+  return stack == NULL;
+}
+
+void Push(element e,node **stack){
+  if( isFull(*stack) ){
+    printf("Stack overflow")};
+  else{
+    node *tmp = makeNewNode(e);
+    tmp->next = *stack;
+    *stack = tmp;
+  }
+  // Tuong duong voi stack
+  // stack->A[stack->top] = e;
+  // stack->top ++
+}
+element Pop(node **stack){
+  if( isEmpty(*stack)){
+    printf("Stack is empty");
+      return -99999;
+  }else{
+    element A;
+    A = (*stack)->data;
+    node *tmp;
+    tmp = *stack;
+    *stack = (*stack)->next;
+    free(tmp);
+    return A;
+  }
+}
+element Peek(node *stack){
+  if( isEmpty(*stack)){
+    printf("Stack is empty");
+      return -99999;
+  }else{
+    return (*stack)->data;
+  }
+}
+int main(){
+  node *STACK;
+  int A[10] = {0,1,2,3,4,5,6,7,8,9};
+  int i;
+  for(i = 0;i<0;i++){
+    Push(A[i],&STACK);
+  }
+  while(! isEmpty(STACK)){
+    printf("%d\t\n",Pop(&STACK));
+  }
+  return;
+}

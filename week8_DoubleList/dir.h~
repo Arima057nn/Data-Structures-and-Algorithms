@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef struct phone{
+  char model[25];
+  char size[3];
+  char memory[5];
+  char price[10]
+} phone
+
+include 

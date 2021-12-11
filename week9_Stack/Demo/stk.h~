@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define Max 50 
+
+typedef phone element;
+typedef struct node{  
+  struct node *link;
+  element data;
+} node;
+node *top = NULL;
+int isEmpty(node *top){
+  return top == NULL;
+node *makeNewNode(element e){
+  node *new = (node*)malloc(sizeof(node));
+  new->data = e;
+  new->link = NULL;
+  return new;
+}
+node *Push(element e){
+  node *new = makeNewNode(e);
+  if(top == NULL){
+    top = new;
+  }else{
+  new->link = top;
+  top = new;
+  }
+  return top;
+}
+element Pop(){
+  node *cur;
+  element tmp;
+  if(top == NULL){
+    printf("the stack is empty can not pop Error\n");
+    return ;
+  }
+  
+  tmp = top->data;
+  cur = top;
+  top = top->link;
+  free(cur);
+  return tmp;
+  // printf("%-20s %-20d %-20d %-20s\n",temp->data.model,temp->data.size,temp->data.memory,temp->data.price);

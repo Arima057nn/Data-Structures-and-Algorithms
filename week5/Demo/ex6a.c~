@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define NUM 10
+typedef struct Information{
+  char name[25];
+  char tel[25];
+  char mail[25];
+} Phone;
+int main(){
+  int i;
+  Phone *a;
+  FILE *ptr; 
+  for(i=0;i<NUM;i++){
+    printf("Name[%d]: ",i+1);
+    gets(a[i].name);
+    printf("Tel[%d]: ",i+1);
+    gets(a[i].tel);
+    printf("Mail[%d]: ",i+1);
+    gets(a[i].mail);
+  }
+  if( (ptr == fopen("phone.dat","w+b")) == NULL){
+	printf("Cannot open the file");
+	return 1;
+  }
+  if( (phone*)malloc(num*sizeof(phone)) ==NULL ){
+    printf("error! allocation ");
+    return 1;
+  }
+  fwrite(a,sizeof(phone),NUM,ptr);
+  printf("\n\n");
+  printf("%-20s %-20s %-20s\n","Name","Tel","Mail");
+  if(i=0;i<NUM;i++){
+    printf("%-20s %-20s %-20s\n",a[i].name,a[i].tel,a[i].mail);
+  }
+  fclose(ptr);  
+  return 0;
+}

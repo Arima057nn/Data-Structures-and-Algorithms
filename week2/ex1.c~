@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#defend MAX 100
+void raplace(char *str, char a,char b){
+  int i;
+  for(i=0;i<strlen(str);i++){
+    if(str[i] == a){
+      str[i] = b;
+    }
+}
+}
+int main(){
+  char M[MAX];
+  char a,b;
+  char c;
+  printf("Nhap chuoi va chu cai ma ban muon nhap\n");
+  gets(M);
+  c = getchar();
+  scanf("%c",&a);
+  scanf("%c",&b);
+  rephace(M,a,b);
+  printf("%s",M);
+  return 0;
+}

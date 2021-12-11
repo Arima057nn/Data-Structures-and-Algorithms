@@ -1,0 +1,17 @@
+#include "Tree.h"
+
+int main(){
+  int i;
+  tree Tree;
+  makeNullTree(&Tree);
+  for (i = 0; i < 6; ++i)
+    addRight(&Tree, i);
+  for (i = 0; i < 3; ++i)
+    addLeft(&Tree, i);
+  addRight(&Tree->left, 0);
+  addRight(&Tree->left, 1);
+  addRight(&Tree->left->left, 0);
+  addRight(&Tree->left->left, 1);
+  printf("%d\t%d\t%d\t%d\n", height(Tree), nb_leaf(Tree), nb_internalNode(Tree),nb_RightChild(Tree));
+  return 0;
+}

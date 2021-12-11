@@ -1,0 +1,30 @@
+#include <stdio.h>
+#define MAX 100
+#include <stdio_ext.h>
+
+typedef struct PhoneAddress_t{
+  char name[20];
+  char tel[11];
+  char mail[20];
+}phone;
+
+int main(){
+  FILE *ptr;
+  phone A[5];
+  int i;
+  ptr = fopen("PhoneAddress.dat","r+b");
+  fread(A,sizeof(phone),5,ptr);
+  if(ptr == NULL){
+    printf("cannot open the file");
+    return 1;
+  }
+  printf("%-20s %-15s %-20s\n","Name","Tel","Mail");
+  for(i=0;i<5;i++){
+    printf("%-20s %-15s %-20s\n",A[i].name,A[i].tel,A[i].mail);
+
+     
+  }
+  fclose(ptr);
+
+  return 0;
+}

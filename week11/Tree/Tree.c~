@@ -1,0 +1,122 @@
+#include <stdio.h>
+#include <stdlib.h>
+typedef int element;
+typedef struct nodeType {
+  element data;
+  struct nodeType *left, *right;
+} node;
+typedef struct nodeType *tree;
+void makeNullTree(tree *T){
+  (*T) = NULL;
+};
+// create a new node
+node *createNewNode(element e){
+  node *new = (node*)malloc(sizeof(node));
+  if(new != NULL){
+    new->right = NULL;
+    new->left = NULL;
+    new->data = e;
+  }
+  return new;
+}
+// Access left and righ child
+tree leftChild(tree T){
+  if(T != NULL)   return T->left;
+  else return NULL;
+}
+tree rightChild(tree T){
+  if(T != NULL)   return T->right;
+  else return NULL;
+  
+}
+//cheack if a tree is a NULL
+int isEmpty(tree T){
+  return T == NULL;
+}
+
+//Check if a node is a leaves
+int isLeaves(tree T){
+  if(T != NULL){
+    return (leftChild(T) == NULL) && (rightChild(T) == NULL);
+  }else return -1;
+}
+
+//Creat a tree from two sub-tree
+tree createEfrom2(element e, tree l, tree r){
+  tree N = (node*)malloc(sizeof(node));
+  N->data = e;
+  N->left = l;
+  N->right = r;
+  return N;
+}
+
+
+// Number of node
+int nb_nodes(tree T){
+  if(isEmpty(T)) return 0;
+  else return 1 +nb_nodes(leftChild(T)) + nb_nodes(rightChild(T));
+}
+
+// Number of leaf node
+int nb_leaf(tree T){
+  if(T == NULL) return 0;
+  if(rightChild(T) == NULL || leftChild(T) == NULL) return 1;
+  else return nb_leaf(leftChild(T)) + nb_leaf(rightChild(T));
+}
+
+tree addRight(tree *T,element e){
+  node *new = createNewNode(e);
+  if(*T == NULL){
+    *T = new;
+  }else{
+    node *Rnode = *T;
+    while (Rnode->right != NULL)
+      Rnode = Rnode->right;
+    Rnode->right = new;
+  }
+  return new;
+}
+tree addLeft(tree *T,element e){
+  node *new = createNewNode(e);
+  if(*T == NULL){
+    *T = new;
+    }else{
+    node *Lnode = *T;
+    while (Lnode->right != NULL)
+      Lnode = Lnode->right;
+    Lnode->right = new;
+  }
+  return new;
+}
+
+int height(tree T){
+  if(T == NULL) return 0;
+  else{
+    int right_Height = height(T->right);
+    int left_Height = height(T->left);
+    if(right_Height > left_Height)  return right_Height + 1;
+    else return left_Height + 1;
+  }
+}
+int main(){
+  tree Tree;
+  makeNullTree(&Tree);
+  printf("\nheight = %d",height(Tree));
+  Tree = createNewNode(3);
+  printf("\n%d",Tree->data);
+  printf("\nheight = %d",height(Tree));
+  node *tree1, *tree2;
+  printf("\nnumber of tree = %d",nb_nodes(Tree));
+  tree1 = createNewNode(4);
+  tree2 = createNewNode(5);
+  Tree = createEfrom2(Tree->data,tree1, tree2);
+  printf("\nnumber of tree = %d",nb_nodes(Tree));
+  printf("\n%d",Tree->data);
+  printf("\nheight = %d",height(Tree));
+  Tree->right = createEfrom2(Tree->right->data,createNewNode(6),createNewNode(7));
+  printf("\nnumber of tree = %d",nb_nodes(Tree));
+  printf("\nnumber of leaf = %d",nb_leaf(Tree));
+
+  
+  return 0;
+}

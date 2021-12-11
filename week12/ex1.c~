@@ -1,0 +1,15 @@
+#define MAX 10
+typedef int element;
+#include "SearchBinaryTree.h"
+
+
+int main(){
+  tree T;
+  int a[Max] = { 2,4,52,5,-4,5,-100,8,-1000,0,-44};
+  int i;
+  for(i = 0;i < Max; i++}{
+    insertNode(a[i],T);
+  }
+  
+
+}

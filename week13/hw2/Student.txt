@@ -1,0 +1,10 @@
+Pham Tien Dung              232                  9.300000             Dong_Loi            
+Le Tra My                   343                  9.000000             Dong_Loi            
+Nguyen Thi Nhan             324                  9.800000             Xuan_Du             
+Le Vinh Dung                232                  7.400000             Dong_Tien           
+Nguyen Khanh Trang          324                  8.000000             An_Nong             
+Le Tien Lam                 464                  5.600000             Thi_Tran            
+Nguyen Thi Thao             938                  10.000000            An_Nong             
+Nguyen Ngoc Mai             455                  9.900000             Tan_Ninh            
+Le Dinh Anh                 333                  8.500000             Tan_Ninh            
+Hua Nhat Tai                324                  4.300000             Tan_Ninh            

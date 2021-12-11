@@ -1,0 +1,36 @@
+#include "stackstruct.h"
+#include <string.h>
+
+
+bool isOperator(char op){
+  return (op == '+' || op == '-' ||
+	  op == '*' || op == '%' ||
+	  op == '/' || op == '^');
+}
+
+int compute(int left, int right, char op){
+  int value;
+  switch(op){
+  case '+' : value = left + right;
+    break;
+  case '-' : value = left - right;
+    break;
+  case '*' : value = left * right;
+    break;
+  case '%' : value = left % right;
+    break;
+  case '/' : value = left / right;
+    break;
+  case '^' : value = pow(left , right);
+    break;
+  }
+  return value;
+}
+
+b
+
+int main(){
+  
+
+  return 0;
+}

@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define Num 10
+typedef struct SmartPhone
+{
+  char model[25];
+  char GB[5];     //Dung luong bo nho
+  char inches[5]; //Kich thuoc man hinh
+  char price[10];
+} phone;
+
+int main()
+{
+  int i;
+  phone a[Num], *b;
+  char buff[500];
+  FILE *fp1, *fp2;
+  int luaChon;
+
+  printf("==================MENU=================\n");
+  printf("1.file.txt -> file.dat\n");
+  printf("2.read and output from file.\n");
+  printf("3.Print All Nokia Database.\n");
+  printf("4.\n");
+  printf("5.Exit");
+
+  do
+    {
+      printf("\nBan chon? ");
+      scanf("%d", &luaChon);
+      if (luaChon != 2 && luaChon != 3 && luaChon != 4)
+	{
+	  i = 1;
+	}
+      if ((luaChon == 2 || luaChon == 3 || luaChon == 4) && i == 0)
+	{
+	  do
+	    {
+	      printf("bam 1 de nhap thong tin: ");
+	      scanf("%d", &luaChon);
+	    } while (luaChon == 2 || luaChon == 3 || luaChon == 4);
+	}
+      switch(luaChon)
+	{
+	case 1:
+	  b = (phone *)malloc(Num * sizeof(phone));
+	  fp1 = fopen("SmartPhone.txt", "r");
+	  fp2 = fopen("SmartPhone.dat", "w+b");
+	  if (fp1 == NULL || fp2 == NULL)
+	    {
+	      printf("Cannot open the file");
+	     return 1;
+	    }
+	  for (i = 0; i < Num; i++)
+	    {
+	     fscanf(fp1, "%s%s%s%s%*c", a[i].model, a[i].GB, a[i].inches, a[i].price);
+	     strcpy(b[i].model, a[i].model);
+	     strcpy(b[i].GB, a[i].GB);
+	     strcpy(b[i].inches, a[i].inches);
+	     strcpy(b[i].price, a[i].price);
+	    }
+	  fwrite(b, sizeof(phone), Num, fp2);
+	  free(b);
+	  fclose(fp1);
+	  fclose(fp2);
+	  
+	case 2:
+	  int k = 1;
+	  Printf("Chon so phan tu ban muon doc");
+	  if( k == 1){
+	    fp2 = fopen("SmartPhone.dat", "w+b");
+	     if(fp2 == NULL)
+	       {
+		 printf("Cannot open the file");
+		 return 1;
+	       }
+	     
+	  }
+	  break;
+	case 3:
+	  fread(b, sizeof(phone), Num, fp2);
+	  for (i = 0; i < Num; i++)
+	    {
+	      printf("%-25s %-15s %-20s %-20s\n", b[i].model, b[i].GB, b[i].inches, b[i].price);
+	    }
+	  break;
+	  break;
+	case 4:
+	  
+	  break;
+	  
+	case 5:
+	  printf("Da thoat chuong trinh");
+	  break;
+	default:
+	  printf("Khong co chuc nang nay");
+	  break;
+	}
+    }
+  while (luaChon != 5)
+       ;
+  
+  
+  return 0;
+}

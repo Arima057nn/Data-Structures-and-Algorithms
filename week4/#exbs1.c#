@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+typedef struct circle{
+  int x;
+  int y;
+  int R;
+} circle;
+
+void Giao(circle *A, circle *B){
+  if( ((A->x - B->x) * (A->x - B->x) + (A->y - B->y) * (A->y - B->y)) > (A->R + B->R)*(A->R + B->R)){
+    printf("2 circle khong giao nhau");
+  }
+  else printf("Giao nhau");
+}
+
+int main(){
+
+
+  return 0;
+}

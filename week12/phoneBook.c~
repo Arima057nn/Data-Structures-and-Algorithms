@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define Max 10
+typedef struct Phone{
+  char name[30];
+  char email[30];
+  char tel[10];
+} phone;
+
+phone input(){
+  char c;
+  phone A;
+  printf("\nName: ");
+  c = getchar();
+  gets(A.name);
+  printf("\nEmail: ");
+  c = getchar();
+  gets(A.email);
+  printf("\nTel: ");
+  c = getchar();
+  gets(A.tel);
+  return A;
+}
+
+int main(){
+  FILE *ptr;
+  int i;
+  phone A[1];
+  ptr = fopen("PhoneBook.dat", "w+b");
+  if(ptr == NULL){
+    printf("Cannot open the file\n");
+    return 1;
+  }
+  for(i = 0; i < Max; i++){
+    A[0] = input();
+    fwrite(A,sizeof(phone),1,ptr);
+  }
+  fclose(ptr);
+  return 0;
+}

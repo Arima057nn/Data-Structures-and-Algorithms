@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define LINE_LENGTH 50
+#define PAGE_LINE_NUMBER 40
+int main(int n,char *m[]){
+  if(n != 2 || n != 3){
+    printf("Error syntax");
+    return 1;
+  }
+  FILE *ptr;
+  char buff[200];
+  int c;
+  if(n == 2){
+    if( (ptr = fopen(m[1],"r")) == NULL){
+      printf("Cannot open the file");
+      return 1;
+    }
+    while( fgets(c,255,ptr) != EOF){
+      fputs(c,ptr);
+    }
+    fclose(ptr);
+  }
+  else if(n == 3){
+    if( strcmp(b[2],"-p") != 0){
+      printf("Error syntax");
+      return 1;
+    }
+    if( (ptr = fopen(m[1],"r")) == NULL){
+      printf("Cannot open the file");
+      return 1;
+    }
+    while
+  }
+
+  return 0;
+}

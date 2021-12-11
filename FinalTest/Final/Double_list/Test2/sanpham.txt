@@ -1,0 +1,3 @@
+1 20000 10 Keo Lotte
+2 25000 50 Banh kem
+3 10000 20 Kem Vani

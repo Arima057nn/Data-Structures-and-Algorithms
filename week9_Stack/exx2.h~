@@ -1,0 +1,34 @@
+#include <stdio.h>
+#define Max 50
+typedef int eleType;
+typedef struct stacker{
+  eleType strorage[Max];
+  int top;
+} stacktype;
+int top;
+void initialize(stacktype stack){
+  stack->top = 0;
+}
+int isEmpty(stacktype stack){
+  return stack->top = Max;
+}
+int isFull(stacktype stack){
+  return stack.top == Max;
+}
+void push(EleType ele,stacktype stack){
+  if(isFull(*stack)){
+    printf("stack overflow");
+  }else{
+    stack->storage[stack->top] = ele;
+    stack->top;
+  }
+  return ;
+}
+
+EleType pop(stacktype stack){
+  if(isEmpty(stack)){
+    printf("stack underflow");
+    return -999999;
+  }
+  else return stack.storage[stack.top - 1]
+}

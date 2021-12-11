@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef struct TuDien{
+  int stt;
+  char ND[100]; 
+} TD;
+int main(){
+  FILE *ptr,*fp;
+  TD *a,*b;
+  int i = 0,num = 0;
+  ptr = fopen("vnedict.txt","r");
+  fp = fopen("vnedict.dat","w+b");
+  if(ptr == NULL || fp == NULL){
+    printf("Cannot open the file");
+    return 1;
+  }
+  char buff[100];
+  while( fgets(buff,100,ptr) != NULL){
+    num ++;
+  }
+  printf("%d",num);
+  a = (TD*)malloc( num * sizeof(TD));
+  rewind(ptr);
+  
+  while( fgets(a[i].ND,100,ptr) != NULL){ 
+    i++;
+  }
+  num = i - 1;
+  printf("%d",num);
+  
+  fwrite(a,sizeof(TD),num,fp);
+  //In ra toan bo noi dung trong file .dat
+  fread(a,sizeof(TD),num,fp);
+  for(i = 0; i <  num ; i++){
+    printf("%s\t%s\n",b[i].stt,b[i].ND);
+  }
+  
+  free(a);
+  fclose(ptr);
+  fclose(fp);
+
+  return 0;
+}

@@ -1,0 +1,4 @@
+CLI0032IPA           	Hoang Thu Nga       643000               1               2               1              
+CLI0124SDH           	Le Phu              821000               0               0               2              
+CLI0123SDH           	Nguyen Tran Dat     764000               2               2               2              
+CLI0003IPA           	Tran Hieu           1831000              1               1               1              
